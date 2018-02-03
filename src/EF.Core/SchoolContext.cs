@@ -19,7 +19,9 @@ namespace EF.Core
         }
 
         public DbSet<Course> Courses { get; set; }
+
         public DbSet<Department> Departments { get; set; }
+
         public DbSet<Student> Students { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,6 +31,14 @@ namespace EF.Core
             optionsBuilder.UseSqlServer(connString);
 
             base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //define the pk on the relational table as a combination of the fk related here
+            modelBuilder.Entity<CourseStudent>().HasKey(x => new { x.CourseId, x.StudentId }).HasName("Id");
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
