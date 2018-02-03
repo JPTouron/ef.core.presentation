@@ -189,11 +189,4 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
-/Main/Published/Staging
-/Main/Published/Release
-/Main/Solution/Deloitte.Framework
-/Main/Solution/CEPOnline.Web/Logs
-/Main/Branches/Architecture_Redesign/.vs/config
-/Main/Branches/Architecture_Redesign/CEPOnline.Web/Logs
 
-/Main/Solution/.vs/config/applicationhost.config
