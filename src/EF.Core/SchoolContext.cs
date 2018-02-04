@@ -38,6 +38,9 @@ namespace EF.Core
             //define the pk on the relational table as a combination of the fk related here
             modelBuilder.Entity<CourseStudent>().HasKey(x => new { x.CourseId, x.StudentId }).HasName("Id");
 
+            //old way of setting up 1..0.1 relationship between two clases, where DegreeThesis may or may not exist
+            //modelBuilder.Entity<Student>().HasOptional(x=>x.DegreeThesis).WithRequired(x=>x.Student)
+
             base.OnModelCreating(modelBuilder);
         }
     }

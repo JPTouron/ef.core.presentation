@@ -7,6 +7,7 @@ namespace EF.Core.Model
         //old way to link a many to many
         //public List<Course> Course { get; set; }
 
+        public decimal? AverageGrades { get; set; }
         public List<CourseStudent> CourseStudent { get; set; }
 
         /// <summary>
@@ -16,10 +17,13 @@ namespace EF.Core.Model
 
         public string FirstName { get; set; }
 
-        public decimal? Grade { get; set; }
-
         public string LastName { get; set; }
 
         public int StudentId { get; set; }
+
+        /// <summary>
+        /// enough code on this end of the relationship to determine a 1..0.1 relationship between Student and DegreeThesis
+        /// </summary>
+        public DegreeThesis Thesis { get; set; }
     }
 }
