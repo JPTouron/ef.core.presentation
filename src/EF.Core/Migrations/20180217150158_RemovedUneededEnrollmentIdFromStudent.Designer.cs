@@ -11,9 +11,10 @@ using System;
 namespace EF.Core.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20180217150158_RemovedUneededEnrollmentIdFromStudent")]
+    partial class RemovedUneededEnrollmentIdFromStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

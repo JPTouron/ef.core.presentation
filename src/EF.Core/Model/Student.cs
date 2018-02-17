@@ -10,15 +10,15 @@ namespace EF.Core.Model
         public decimal? AverageGrades { get; set; }
         public List<CourseStudent> CourseStudent { get; set; }
 
-        /// <summary>
-        /// pk
-        /// </summary>
-        public int EnrollmentId { get; set; }
+        
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
+        /// <summary>
+        /// pk
+        /// </summary>
         public int StudentId { get; set; }
 
         /// <summary>
