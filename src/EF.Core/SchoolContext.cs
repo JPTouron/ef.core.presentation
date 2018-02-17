@@ -4,6 +4,14 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace EF.Core
 {
+    /// <summary>
+    /// this interface implementation enables the using of migrations right out of the box 
+    /// the samy way that we used to do with EF6
+    /// refereces:
+    /// https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dbcontext-creation
+    /// https://docs.microsoft.com/en-us/ef/core/miscellaneous/1x-2x-upgrade
+    /// https://codingblast.com/entityframework-core-idesigntimedbcontextfactory/
+    /// </summary>
     public class DbContextInitilizer : IDesignTimeDbContextFactory<SchoolContext>
     {
         public SchoolContext CreateDbContext(string[] args)
@@ -18,18 +26,31 @@ namespace EF.Core
         {
         }
 
+        /// <summary>
+        /// enables the passing of options from the web project on startup
+        /// </summary>
+        public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
+        {
+
+        }
+
+
+
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Department> Departments { get; set; }
-
         public DbSet<Student> Students { get; set; }
+        public DbSet<DegreeThesis> DegreeThesis { get; set; }
+
+        public DbSet<CourseStudent> CourseStudents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // alternative way to setup db connection string
+            // this is required to be uncommented if you use controller scaffolding or migration running
+
             var connString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = School; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-
             optionsBuilder.UseSqlServer(connString);
-
             base.OnConfiguring(optionsBuilder);
         }
 
