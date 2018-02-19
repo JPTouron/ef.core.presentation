@@ -57,7 +57,7 @@ namespace EF.Core
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //define the pk on the relational table as a combination of the fk related here
-            modelBuilder.Entity<CourseStudent>().HasKey(x => new { x.CourseId, x.StudentId }).HasName("Id");
+            modelBuilder.Entity<CourseStudent>().HasKey(x => new { x.CourseId, x.StudentId });
 
             //old way of setting up 1..0.1 relationship between two clases, where DegreeThesis may or may not exist
             //modelBuilder.Entity<Student>().HasOptional(x=>x.DegreeThesis).WithRequired(x=>x.Student)
