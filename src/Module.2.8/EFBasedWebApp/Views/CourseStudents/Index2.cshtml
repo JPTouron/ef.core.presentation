@@ -1,0 +1,45 @@
+﻿@model List<IGrouping<object,object>>
+
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h2>Index2</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    data1
+                </th>
+                <th>
+                    data2
+                </th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key."Title")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key.Name)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.)*@
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CourseId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

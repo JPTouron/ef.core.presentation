@@ -22,20 +22,20 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Course.CourseId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.StudentId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Display)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.Display)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { courseId = item.CourseId, studentId = item.StudentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { courseId = item.CourseId, studentId = item.StudentId })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
