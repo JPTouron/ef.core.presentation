@@ -2,15 +2,13 @@
 
 namespace EF.Core.Model
 {
-    public class Student
+    public partial class Student
     {
+        public decimal? AverageGrades { get; set; }
+
         //old way to link a many to many
         //public List<Course> Course { get; set; }
-
-        public decimal? AverageGrades { get; set; }
-        public List<CourseStudent> CourseStudent { get; set; }
-
-        
+        public List<CourseStudent> CourseStudents { get; set; }
 
         public string FirstName { get; set; }
 
@@ -25,5 +23,13 @@ namespace EF.Core.Model
         /// enough code on this end of the relationship to determine a 1..0.1 relationship between Student and DegreeThesis
         /// </summary>
         public DegreeThesis Thesis { get; set; }
+    }
+
+
+
+    public partial class Student
+    {
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string Display => $"{StudentId} - {FirstName}, {LastName}";
     }
 }
