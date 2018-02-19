@@ -13,9 +13,6 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Administrator)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Budget)
                 </th>
                 <th>
@@ -30,9 +27,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Administrator)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Budget)
             </td>
