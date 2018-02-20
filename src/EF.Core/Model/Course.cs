@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace EF.Core.Model
 {
@@ -35,6 +33,5 @@ namespace EF.Core.Model
         //{
         //    return c.Students.SelectMany(x => x.CourseStudent).Where(x => x.CourseId == this.CourseId).Select(x => x.Student);
         //}
-
     }
 }
