@@ -22,6 +22,7 @@ namespace EF.Core.Migrations
                 columns: new[] { "CourseId", "StudentId" });
         }
 
+
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropPrimaryKey(
