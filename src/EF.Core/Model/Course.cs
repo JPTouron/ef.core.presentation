@@ -2,6 +2,7 @@
 
 namespace EF.Core.Model
 {
+
     public partial class Course
     {
         public int CourseId { get; set; }
